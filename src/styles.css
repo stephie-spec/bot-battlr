@@ -1,0 +1,171 @@
+.bot-collection, .your-bot-army {
+  margin: 30px 0;
+}
+
+.bot-collection h2, .your-bot-army h2 {
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.bot-grid, .army-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.bot-card, .army-bot-card {
+  flex: 1 1 calc(25% - 20px);
+  min-width: 250px;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.bot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.army-bot-card {
+  background: #f0f8ff;
+  border: 2px solid #667eea;
+}
+
+.bot-image {
+  flex-shrink: 0;
+}
+
+.bot-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bot-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.bot-info h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.bot-class {
+  color: #667eea;
+  font-weight: bold;
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.catchphrase {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+  margin: 10px 0;
+  flex: 1;
+}
+
+.bot-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stat {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  white-space: nowrap;
+}
+
+.health { color: #e74c3c; }
+.damage { color: #e67e22; }
+.armor { color: #3498db; }
+
+/* Army Actions */
+.army-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.release-btn, .discharge-btn, .enlist-btn, .back-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+  flex: 1;
+}
+
+.release-btn {
+  background: #95a5a6;
+  color: white;
+}
+
+.release-btn:hover {
+  background: #7f8c8d;
+}
+
+.discharge-btn {
+  background: #e74c3c;
+  color: white;
+  flex: 0 0 40px;
+}
+
+.discharge-btn:hover {
+  background: #c0392b;
+}
+
+.enlist-btn {
+  background: #27ae60;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.enlist-btn:hover {
+  background: #219a52;
+}
+
+.back-btn {
+  background: #34495e;
+  color: white;
+  margin-bottom: 20px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.back-btn:hover {
+  background: #2c3e50;
+}
+
+.empty-army {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  width: 100%;
+}
