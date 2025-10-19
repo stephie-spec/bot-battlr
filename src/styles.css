@@ -1,31 +1,37 @@
-.bot-collection, .your-bot-army {
-  margin: 30px 0;
+.main-content {
+  display: flex;
+  gap: 30px;
+  flex: 1;
 }
 
-.bot-collection h2, .your-bot-army h2 {
+.bot-collection {
+  flex: 3; 
+  min-width: 0; 
+}
+
+.bot-collection h2 {
   border-bottom: 2px solid #667eea;
   padding-bottom: 10px;
   color: #333;
   margin-bottom: 20px;
 }
 
-.bot-grid, .army-grid {
+.bot-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.bot-card, .army-bot-card {
-  flex: 1 1 calc(25% - 20px);
-  min-width: 250px;
-  max-width: 300px;
+.bot-card {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   background: white;
+  width: calc(33.333% - 14px); 
+  min-width: 250px;
   display: flex;
   flex-direction: column;
 }
@@ -35,18 +41,13 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.army-bot-card {
-  background: #f0f8ff;
-  border: 2px solid #667eea;
-}
-
 .bot-image {
   flex-shrink: 0;
 }
 
 .bot-image img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -55,13 +56,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .bot-info h3 {
   margin: 0 0 5px 0;
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .bot-class {
@@ -74,16 +75,20 @@
 .catchphrase {
   font-style: italic;
   color: #666;
-  font-size: 0.9em;
-  margin: 10px 0;
+  font-size: 0.85em;
+  margin: 8px 0;
   flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .bot-stats {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  flex-wrap: wrap;
+  margin-top: auto;
   gap: 5px;
 }
 
@@ -92,33 +97,112 @@
   padding: 4px 8px;
   border-radius: 12px;
   background: #f5f5f5;
-  white-space: nowrap;
+  text-align: center;
+  flex: 1;
 }
 
-.health { color: #e74c3c; }
-.damage { color: #e67e22; }
-.armor { color: #3498db; }
+.health { color: #e74c3c; background: #ffeaea; }
+.damage { color: #e67e22; background: #fff4e6; }
+.armor { color: #3498db; background: #e8f4fe; }
 
-/* Army Actions */
+.your-bot-army {
+  flex: 1; 
+  min-width: 300px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.your-bot-army h2 {
+  border-bottom: 2px solid #27ae60;
+  padding-bottom: 10px;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.army-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.army-bot-card {
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  padding: 12px;
+  background: white;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.army-bot-card .bot-image {
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.army-bot-card .bot-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.army-bot-card .bot-info {
+  flex: 1;
+  margin-top: 0;
+}
+
+.army-bot-card .bot-info h3 {
+  font-size: 1em;
+  margin-bottom: 3px;
+}
+
+.army-bot-card .bot-class {
+  font-size: 0.8em;
+  margin: 2px 0;
+}
+
+.army-bot-card .catchphrase {
+  font-size: 0.75em;
+  margin: 5px 0;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+}
+
+.army-bot-card .bot-stats {
+  margin-top: 8px;
+}
+
+.army-bot-card .stat {
+  font-size: 0.75em;
+  padding: 2px 6px;
+}
+
 .army-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .release-btn, .discharge-btn, .enlist-btn, .back-btn {
-  padding: 8px 16px;
+  padding: 6px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.8em;
   transition: background-color 0.2s;
-  flex: 1;
+  font-weight: 500;
 }
 
 .release-btn {
   background: #95a5a6;
   color: white;
+  flex: 1;
 }
 
 .release-btn:hover {
@@ -128,7 +212,8 @@
 .discharge-btn {
   background: #e74c3c;
   color: white;
-  flex: 0 0 40px;
+  width: 30px;
+  font-weight: bold;
 }
 
 .discharge-btn:hover {
@@ -138,10 +223,8 @@
 .enlist-btn {
   background: #27ae60;
   color: white;
-  padding: 12px 24px;
-  font-size: 1.1em;
-  width: 100%;
-  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
 }
 
 .enlist-btn:hover {
@@ -152,8 +235,6 @@
   background: #34495e;
   color: white;
   margin-bottom: 20px;
-  width: auto;
-  align-self: flex-start;
 }
 
 .back-btn:hover {
@@ -164,8 +245,138 @@
   text-align: center;
   color: #7f8c8d;
   font-style: italic;
-  padding: 40px;
-  background: #f8f9fa;
+  padding: 30px 20px;
+  background: white;
   border-radius: 8px;
+  border: 2px dashed #bdc3c7;
+}
+
+.bot-specs {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.specs-detail {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.specs-image {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.specs-image img {
   width: 100%;
+  border-radius: 10px;
+}
+
+.specs-info {
+  flex: 1;
+}
+
+.specs-info h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.specs-stats {
+  margin: 20px 0;
+}
+
+.stat-item {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+@media (max-width: 1200px) {
+  .bot-card {
+    width: calc(50% - 10px); 
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .your-bot-army {
+    position: static;
+    order: -1; 
+    min-width: auto;
+  }
+  
+  .army-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .army-bot-card {
+    width: calc(50% - 8px);
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bot-card {
+    width: 100%; 
+  }
+  
+  .specs-detail {
+    flex-direction: column;
+  }
+  
+  .specs-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .army-bot-card {
+    width: 100%;
+  }
+  
+  .App {
+    padding: 10px;
+  }
+  
+  .app-header {
+    padding: 20px;
+  }
+  
+  .app-header h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .bot-grid {
+    gap: 15px;
+  }
+  
+  .bot-card {
+    min-width: auto;
+  }
+  
+  .army-bot-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .army-bot-card .bot-image {
+    width: 100%;
+  }
+  
+  .army-bot-card .bot-image img {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+  font-size: 1.1em;
 }

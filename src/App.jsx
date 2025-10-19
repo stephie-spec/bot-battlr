@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import BotCollection from './components/BotCollection';
 import YourBotArmy from './components/BotArmy';
+import BotSpecs from './components/BotSpecs';
 import './App.css';
 
 function App() {
   const [bots, setBots] = useState([]);
   const [army, setArmy] = useState([]);
   const [selectedBot, setSelectedBot] = useState(null);
+  const [view, setView] = useState('collection'); 
 
   useEffect(() => {
     fetch('http://localhost:8001/bots')
@@ -19,6 +21,7 @@ function App() {
     if (!army.find(b => b.id === bot.id)) {
       setArmy([...army, bot]);
     }
+    setView('collection'); 
   };
 
   const releaseFromArmy = (botId) => {
@@ -33,9 +36,21 @@ function App() {
       if (response.ok) {
         setBots(bots.filter(bot => bot.id !== botId));
         setArmy(army.filter(bot => bot.id !== botId));
+        setSelectedBot(null);
+        setView('collection');
       }
     })
     .catch(error => console.error('Error deleting bot:', error));
+  };
+
+  const handleSelectBot = (bot) => {
+    setSelectedBot(bot);
+    setView('specs');
+  };
+
+  const handleBackToCollection = () => {
+    setSelectedBot(null);
+    setView('collection');
   };
 
   return (
@@ -45,17 +60,31 @@ function App() {
         <p>Build Your Bot Army!</p>
       </header>
       
-      <YourBotArmy 
-        army={army} 
-        onRelease={releaseFromArmy}
-        onDischarge={dischargeBot}
-      />
-      
-      <BotCollection 
-        bots={bots}
-        onAddToArmy={addToArmy}
-        onSelectBot={setSelectedBot}
-      />
+      <div className="main-content">
+        {view === 'specs' && selectedBot ? (
+          <div className="specs-view">
+            <BotSpecs 
+              bot={selectedBot}
+              onBack={handleBackToCollection}
+              onEnlist={addToArmy}
+            />
+          </div>
+        ) : (
+          <>
+            <BotCollection 
+              bots={bots}
+              onAddToArmy={addToArmy}
+              onSelectBot={handleSelectBot}
+            />
+            
+            <YourBotArmy 
+              army={army} 
+              onRelease={releaseFromArmy}
+              onDischarge={dischargeBot}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
