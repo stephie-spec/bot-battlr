@@ -1,3 +1,5 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
 .main-content {
   display: flex;
   gap: 30px;
@@ -28,17 +30,11 @@
   border-radius: 10px;
   padding: 15px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
   background: white;
   width: calc(33.333% - 14px); 
   min-width: 250px;
   display: flex;
   flex-direction: column;
-}
-
-.bot-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .bot-image {
@@ -62,20 +58,20 @@
 .bot-info h3 {
   margin: 0 0 5px 0;
   color: #333;
-  font-size: 1.1em;
+  font-size: 18px;
 }
 
 .bot-class {
   color: #667eea;
   font-weight: bold;
   margin: 5px 0;
-  font-size: 0.9em;
+  font-size: 14px;
 }
 
 .catchphrase {
   font-style: italic;
   color: #666;
-  font-size: 0.85em;
+  font-size: 13px;
   margin: 8px 0;
   flex: 1;
   overflow: hidden;
@@ -93,7 +89,7 @@
 }
 
 .stat {
-  font-size: 0.8em;
+  font-size: 13px;
   padding: 4px 8px;
   border-radius: 12px;
   background: #f5f5f5;
@@ -121,7 +117,7 @@
   padding-bottom: 10px;
   color: #333;
   margin-bottom: 20px;
-  font-size: 1.3em;
+  font-size: 21px;
 }
 
 .army-grid {
@@ -158,17 +154,17 @@
 }
 
 .army-bot-card .bot-info h3 {
-  font-size: 1em;
+  font-size: 16px;
   margin-bottom: 3px;
 }
 
 .army-bot-card .bot-class {
-  font-size: 0.8em;
+  font-size: 12px;
   margin: 2px 0;
 }
 
 .army-bot-card .catchphrase {
-  font-size: 0.75em;
+  font-size: 12px;
   margin: 5px 0;
   line-clamp: 1;
   -webkit-line-clamp: 1;
@@ -179,7 +175,7 @@
 }
 
 .army-bot-card .stat {
-  font-size: 0.75em;
+  font-size: 12px;
   padding: 2px 6px;
 }
 
@@ -194,8 +190,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.8em;
-  transition: background-color 0.2s;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -224,7 +219,7 @@
   background: #27ae60;
   color: white;
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 16px;
 }
 
 .enlist-btn:hover {
@@ -244,7 +239,6 @@
 .empty-army {
   text-align: center;
   color: #7f8c8d;
-  font-style: italic;
   padding: 30px 20px;
   background: white;
   border-radius: 8px;
@@ -287,7 +281,7 @@
 
 .stat-item {
   margin: 10px 0;
-  font-size: 1.1em;
+  font-size: 18px;
 }
 
 @media (max-width: 1200px) {
@@ -346,7 +340,7 @@
   }
   
   .app-header h1 {
-    font-size: 2em;
+    font-size: 32px;
   }
 }
 
@@ -378,5 +372,5 @@
   text-align: center;
   padding: 40px;
   color: #7f8c8d;
-  font-size: 1.1em;
+  font-size: 18px;
 }

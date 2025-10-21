@@ -18,8 +18,8 @@ AN application for building your own bot army. Browse available bots, view their
 
 1. Clone the repository
 2. Run `npm install` to install dependencies
-3. Run `json-server --watch db.json --port 8001` to start the JSON server
-4. Run `npm start` to start the React application
+3. Run `json-server db.json --port 8001` to start the JSON server
+4. Run `npm run dev` to start the React application
 5. Open http://localhost:3000 to view the app
 
 

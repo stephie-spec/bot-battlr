@@ -34,7 +34,7 @@ function BotCard({ bot, onAddToArmy, onSelect }) {
           onAddToArmy(bot);
         }}
       >
-        <i className="bi bi-plus-circle"></i> Quick Add
+        Quick Add
       </button>
     </div>
   );
