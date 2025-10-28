@@ -1,15 +1,4 @@
 function YourBotArmy({ army, onRelease, onDischarge }) {
-  if (army.length === 0) {
-    return (
-      <div className="your-bot-army">
-        <h2>Your Bot Army</h2>
-        <p className="empty-army">
-          <i className="bi bi-robot"></i> No bots in your army yet. Click on bots to add them!
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="your-bot-army">
       <h2>

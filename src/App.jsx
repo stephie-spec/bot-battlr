@@ -11,10 +11,9 @@ function App() {
   const [view, setView] = useState('collection'); 
 
   useEffect(() => {
-    fetch('http://localhost:8001/bots')
+    fetch('http://localhost:3001/bots')
       .then(response => response.json())
       .then(data => setBots(data))
-      .catch(error => console.error('Error fetching bots:', error));
   }, []);
 
   const addToArmy = (bot) => {
@@ -29,18 +28,15 @@ function App() {
   };
 
   const dischargeBot = (botId) => {
-    fetch(`http://localhost:8001/bots/${botId}`, {
+    fetch(`http://localhost:3001/bots/${botId}`, {
       method: 'DELETE',
     })
     .then(response => {
-      if (response.ok) {
         setBots(bots.filter(bot => bot.id !== botId));
         setArmy(army.filter(bot => bot.id !== botId));
         setSelectedBot(null);
         setView('collection');
-      }
     })
-    .catch(error => console.error('Error deleting bot:', error));
   };
 
   const handleSelectBot = (bot) => {
